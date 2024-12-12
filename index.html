@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,7 +95,96 @@
                     "fact": "The first animated cartoon with synchronized sound was 'Steamboat Willie'",
                     "year": 1928
                 },
-                // Add all 20 facts here from the JSON
+                {
+                    "id": 3,
+                    "fact": "The Simpsons is the longest-running animated TV series in history",
+                    "year": 1989
+                },
+                {
+                    "id": 4,
+                    "fact": "Bugs Bunny's official debut was in 'A Wild Hare'",
+                    "year": 1940
+                },
+                {
+                    "id": 5,
+                    "fact": "SpongeBob SquarePants was originally going to be named SpongeBoy",
+                    "year": 1999
+                },
+                {
+                    "id": 6,
+                    "fact": "The first animated feature film was 'El Apóstol' from Argentina",
+                    "year": 1917
+                },
+                {
+                    "id": 7,
+                    "fact": "Scooby-Doo's full name is Scoobert Doo",
+                    "category": "Character Trivia"
+                },
+                {
+                    "id": 8,
+                    "fact": "The Flintstones was the first animated show to air in prime time",
+                    "year": 1960
+                },
+                {
+                    "id": 9,
+                    "fact": "Disney's Snow White was the first full-length cel-animated feature film in America",
+                    "year": 1937
+                },
+                {
+                    "id": 10,
+                    "fact": "Anime pioneer Osamu Tezuka was inspired by Walt Disney's works",
+                    "category": "Animation History"
+                },
+                {
+                    "id": 11,
+                    "fact": "Tom and Jerry won seven Academy Awards for Best Animated Short Film",
+                    "category": "Awards"
+                },
+                {
+                    "id": 12,
+                    "fact": "The Powerpuff Girls were originally called the Whoopass Girls",
+                    "category": "Development History"
+                },
+                {
+                    "id": 13,
+                    "fact": "Betty Boop was partially inspired by singer Helen Kane",
+                    "year": 1930
+                },
+                {
+                    "id": 14,
+                    "fact": "Pixar's mascot Luxo Jr. was the first 3D animated character to win an Oscar",
+                    "year": 1986
+                },
+                {
+                    "id": 15,
+                    "fact": "South Park episodes are typically made in just six days",
+                    "category": "Production"
+                },
+                {
+                    "id": 16,
+                    "fact": "Felix the Cat was the first animated character to become a merchandise icon",
+                    "year": 1919
+                },
+                {
+                    "id": 17,
+                    "fact": "The Pokemon anime has over 1200 episodes",
+                    "category": "Series Stats"
+                },
+                {
+                    "id": 18,
+                    "fact": "Donald Duck's middle name is Fauntleroy",
+                    "category": "Character Trivia"
+                },
+                {
+                    "id": 19,
+                    "fact": "Hanna-Barbera produced over 3,000 half-hours of animated programming",
+                    "category": "Studio History"
+                },
+                {
+                    "id": 20,
+                    "fact": "The first cartoon cat was created by Otto Messmer for the short 'Feline Follies'",
+                    "year": 1919
+                }
             ]
         };
 
@@ -128,13 +216,6 @@
             factCard.appendChild(factText);
             factCard.appendChild(metaContainer);
             
-            factCard.addEventListener('click', () => {
-                factCard.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    factCard.style.transform = 'scale(1)';
-                }, 100);
-            });
-            
             return factCard;
         }
 
@@ -146,9 +227,7 @@
                 const factCard = createFactCard(factObj);
                 factsContainer.appendChild(factCard);
             });
-        }
-
-        window.addEventListener('load', displayAllFacts);
+        }d', displayAllFacts);
     </script>
 </body>
 </html>
