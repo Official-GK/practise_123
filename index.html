@@ -3,17 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartoon Facts Stack</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cartoon Facts Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .fact-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+            border-left: 5px solid #4CAF50;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .fact-text {
+            color: #34495e;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .fact-year {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            font-style: italic;
+            display: inline-block;
+            background: #f7f9fc;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+
+        .fact-category {
+            color: #4CAF50;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 1rem;
+            background: #e8f5e9;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Cartoon Facts Stack</h1>
-        <div id="fact-display" class="fact-card">
-            <!-- Fact will be displayed here -->
+        <h1>All Amazing Cartoon Facts</h1>
+        <div id="facts-container">
+            <!-- Facts will be populated here -->
         </div>
-        <button id="next-fact">Next Fact</button>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const cartoonFacts = {
+            "cartoon_facts": [
+                // ... your existing facts array
+            ]
+        };
+
+        function displayAllFacts() {
+            const factsContainer = document.getElementById('facts-container');
+            factsContainer.innerHTML = ''; // Clear existing content
+            
+            cartoonFacts.cartoon_facts.forEach(factObj => {
+                const factCard = createFactCard(factObj);
+                factsContainer.appendChild(factCard);
+            });
+        }
+
+        function createFactCard(factObj) {
+            const factCard = document.createElement('div');
+            factCard.className = 'fact-card';
+            
+            const factText = document.createElement('p');
+            factText.className = 'fact-text';
+            factText.textContent = factObj.fact;
+            
+            const metaContainer = document.createElement('div');
+            metaContainer.className = 'fact-meta';
+            
+            if (factObj.year) {
+                const yearText = document.createElement('span');
+                yearText.className = 'fact-year';
+                yearText.textContent = `📅 ${factObj.year}`;
+                metaContainer.appendChild(yearText);
+            }
+            
+            if (factObj.category) {
+                const categoryText = document.createElement('span');
+                categoryText.className = 'fact-category';
+                categoryText.textContent = `🏷️ ${factObj.category}`;
+                metaContainer.appendChild(categoryText);
+            }
+            
+            factCard.appendChild(factText);
+            factCard.appendChild(metaContainer);
+            
+            // Add click animation
+            factCard.addEventListener('click', () => {
+                factCard.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    factCard.style.transform = 'scale(1)';
+                }, 100);
+            });
+            
+            return factCard;
+        }
+
+        // Display facts when page loads
+        window.addEventListener('load', displayAllFacts);
+    </script>
 </body>
 </html>
