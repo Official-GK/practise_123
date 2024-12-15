@@ -1,7 +1,7 @@
 const cartoonFacts = {
     "cartoon_facts": [
         {
-            "id": 1,
+            "id": 1;
             "fact": "Mickey Mouse was originally named Mortimer Mouse until Walt Disney's wife convinced him to change it",
             "year": 1928
         },
